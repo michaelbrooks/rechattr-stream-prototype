@@ -15,6 +15,10 @@
         this.el.append('<div>' + poll.text + '</div>');
     };
 
+    Rendering.prototype.renderChoice = function(choice) {
+        console.log(choice.poll.choices[choice.choice]);
+    };
+
     Rendering.prototype.renderComment = function(comment) {
         this.el.append('<div>' + comment.text + '</div>');
     };

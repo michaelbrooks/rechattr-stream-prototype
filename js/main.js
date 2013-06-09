@@ -9,6 +9,7 @@
             question: 10,
             answer: 8,
             comment: 4,
+            choice: 6,
             poll: 10
         }
     });
@@ -16,6 +17,7 @@
     gen.on('question', $.proxy(rendering.renderQuestion, rendering));
     gen.on('answer', $.proxy(rendering.renderAnswer, rendering));
     gen.on('poll', $.proxy(rendering.renderPoll, rendering));
+    gen.on('choice', $.proxy(rendering.renderChoice, rendering));
     gen.on('comment', $.proxy(rendering.renderComment, rendering));
 
     $(document).ready(function () {

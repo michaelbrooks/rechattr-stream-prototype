@@ -6,6 +6,7 @@
     var Generator = window.Generator = function (config) {
 
         this.questions = [];
+        this.polls = [];
 
         this._timeout = {};
         this.intervals = config['intervals'];
@@ -68,7 +69,7 @@
     }
 
     Generator.prototype.randomContentType = function () {
-        var types = ['question', 'poll', 'comment', 'answer'];
+        var types = ['question', 'poll', 'choice', 'comment', 'answer'];
 
         var index = Math.floor(Math.random() * types.length);
         return types[index];
@@ -78,6 +79,7 @@
         var generators = {
             'question': 'randomQuestion',
             'poll': 'randomPoll',
+            'choice': 'randomChoice',
             'comment': 'randomComment',
             'answer': 'randomAnswer'
         };
@@ -91,6 +93,8 @@
 
             if (contentType == 'question') {
                 this.questions.push(content);
+            } else if (contentType == 'poll') {
+                this.polls.push(content);
             }
         }
 
@@ -110,12 +114,28 @@
         }
     };
 
+    Generator.prototype.randomChoice = function() {
+        if (!this.polls.length) {
+            return;
+        }
+
+        var poll = Math.floor(Math.random() * this.polls.length);
+        poll = this.polls[poll];
+
+        var choice = Math.floor(Math.random() * poll.choices.length);
+
+        return {
+            poll: poll,
+            choice: choice
+        };
+    };
+
     Generator.prototype.randomComment = function () {
         return {
             text: randomText(30, 150, '.!?'),
             author: 'Michael',
             screenname: '@mjbrks'
-        }
+        };
     };
 
     Generator.prototype.randomAnswer = function () {
@@ -131,7 +151,7 @@
             author: 'Michael',
             screenname: '@mjbrks',
             question: question
-        }
+        };
     };
 
     var randomUser = function (into) {
