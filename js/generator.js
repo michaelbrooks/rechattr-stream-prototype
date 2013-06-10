@@ -13,7 +13,7 @@
 
         while (users.length < 5) {
             users.push({
-                name:  randomText(6, 12),
+                author:  randomText(6, 12),
                 screenname: '@' + randomText(5, 10)
             });
         }
@@ -22,6 +22,7 @@
     Generator.prototype.start = function () {
         var self = this;
         _.each(this.intervals, function (interval, type) {
+            self.emit(type);
             self.nextEvent(type);
         });
     };
@@ -138,11 +139,13 @@
     };
 
     Generator.prototype.randomComment = function () {
-        return {
-            text: randomText(30, 150, '.!?'),
-            author: 'Michael',
-            screenname: '@mjbrks'
+        var comment = {
+            text: randomText(30, 150, '.!?')
         };
+
+        randomUser(comment);
+
+        return comment;
     };
 
     Generator.prototype.randomAnswer = function () {
@@ -153,12 +156,14 @@
         var question = Math.floor(Math.random() * this.questions.length);
         question = this.questions[question];
 
-        return {
+        var answer = {
             text: randomText(30, 150, '.!?'),
-            author: 'Michael',
-            screenname: '@mjbrks',
             question: question.id
         };
+
+        randomUser(answer);
+
+        return answer;
     };
 
     var randomUser = function (into) {
