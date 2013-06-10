@@ -108,10 +108,17 @@
     };
 
     Generator.prototype.randomPoll = function () {
-        return {
+        var poll = {
             text: randomText(30, 150, '?'),
-            choices: randomChoices(3, 5)
+            choices: randomChoices(3, 5),
+            answers: []
+        };
+
+        while (poll.answers.length < poll.choices.length) {
+            poll.answers.push(0);
         }
+
+        return poll;
     };
 
     Generator.prototype.randomChoice = function() {

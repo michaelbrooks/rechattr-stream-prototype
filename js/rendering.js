@@ -34,7 +34,12 @@
     };
 
     Rendering.prototype.renderChoice = function(choice) {
-        console.log(choice.poll.choices[choice.choice]);
+        var poll = this.polls.get(choice.poll.id);
+
+        var answers = poll.get('answers');
+        answers[choice.choice] += 1;
+
+        poll.trigger('change');
     };
 
     Rendering.prototype.renderComment = function(comment) {

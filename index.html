@@ -41,7 +41,10 @@
     <div class="text"><%=text%></div>
     <div class="choices">
         <% for (var i in choices) { %>
-        <div class="choice btn"><%=choices[i]%></div>
+        <div class="choice">
+            <div class="count"><%=answers[i]%></div>
+            <div class="choice-label"><%=choices[i]%></div>
+        </div>
         <% } %>
     </div>
 </script>
