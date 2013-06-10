@@ -11,9 +11,9 @@
     <script src="components/backbone.marionette/lib/backbone.marionette.js"></script>
     <script src="components/bootstrap/docs/assets/js/bootstrap.js"></script>
 
+    <script src="js/views/comment.js"></script>
     <script src="js/views/poll.js"></script>
     <script src="js/views/question.js"></script>
-    <script src="js/views/comment.js"></script>
 
     <script src="js/generator.js"></script>
     <script src="js/rendering.js"></script>
@@ -51,6 +51,7 @@
 
 <script type="text/template" id="question-template">
     <div class="text"><%=text%></div>
+    <div class="answers"></div>
 </script>
 
 <script type="text/template" id="comment-template">

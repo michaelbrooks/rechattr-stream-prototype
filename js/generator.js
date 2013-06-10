@@ -132,7 +132,7 @@
         var choice = Math.floor(Math.random() * poll.choices.length);
 
         return {
-            poll: poll,
+            poll: poll.id,
             choice: choice
         };
     };
@@ -157,7 +157,7 @@
             text: randomText(30, 150, '.!?'),
             author: 'Michael',
             screenname: '@mjbrks',
-            question: question
+            question: question.id
         };
     };
 

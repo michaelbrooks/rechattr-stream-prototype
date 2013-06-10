@@ -1,8 +1,11 @@
 (function () {
 
-    var QuestionView = window.QuestionView = Marionette.ItemView.extend({
+    var QuestionView = window.QuestionView = Marionette.CompositeView.extend({
         template: '#question-template',
-        className: 'question'
+        className: 'question',
+
+        itemViewContainer: '.answers',
+        itemView: CommentView
     });
 
 })();
