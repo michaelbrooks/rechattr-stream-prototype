@@ -1,10 +1,21 @@
 (function() {
 
     var Rendering = window.Rendering = function(config) {
+
+        this.polls = new Backbone.Collection();
+        this.questions = new Backbone.Collection();
+        this.comments = new Backbone.Collection();
     };
 
     Rendering.prototype.renderQuestion = function(question) {
-        this.el.append('<div>' + question.text + '</div>');
+        question = new Backbone.Model(question);
+        this.questions.add(question);
+
+        var view = new QuestionView({
+            model: question
+        });
+
+        this.el.append(view.render().el);
     };
 
     Rendering.prototype.renderAnswer = function(answer) {
@@ -12,7 +23,14 @@
     };
 
     Rendering.prototype.renderPoll = function(poll) {
-        this.el.append('<div>' + poll.text + '</div>');
+        poll = new Backbone.Model(poll);
+        this.polls.add(poll);
+
+        var view = new PollView({
+            model: poll
+        });
+
+        this.el.append(view.render().el);
     };
 
     Rendering.prototype.renderChoice = function(choice) {
@@ -20,7 +38,14 @@
     };
 
     Rendering.prototype.renderComment = function(comment) {
-        this.el.append('<div>' + comment.text + '</div>');
+        comment = new Backbone.Model(comment);
+        this.comments.add(comment);
+
+        var view = new CommentView({
+            model: comment
+        });
+
+        this.el.append(view.render().el);
     };
 
     Rendering.prototype.render = function(el) {

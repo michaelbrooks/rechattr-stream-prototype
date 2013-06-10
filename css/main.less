@@ -1,0 +1,112 @@
+@import-once "../components/bootstrap/less/bootstrap";
+@import-once "../components/bootstrap/less/responsive";
+
+@phi: 1.618;
+
+.golden-font(@size) {
+    font-size: @size;
+    line-height: @size * @phi;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    background: #800000;
+
+    float: right;
+    margin-top: 15px;
+
+    line-height: 100px;
+    font-size: 72px;
+    color: #fff;
+
+    text-align: center;
+}
+
+.event-info {
+    float: right;
+    clear: both;
+    margin-top: 15px;
+
+    text-align: right;
+
+    .event-title {
+        font-weight: bold;
+    }
+
+    .event-detail {
+        .golden-font(11px);
+    }
+}
+
+.stream {
+    margin-top: 15px;
+}
+
+.card {
+    padding: 15px;
+    margin: 10px 0;
+
+    .box-shadow(0 0 5px 1px #ddd);
+}
+
+.question, .poll {
+
+    .card();
+
+    .text {
+        .golden-font(18px);
+    }
+}
+
+.poll {
+    .choices {
+        margin-top: 10px;
+        .clearfix();
+
+        .choice {
+            min-width: 150px;
+            float: left;
+            clear: both;
+            margin-top: 5px;
+        }
+    }
+}
+
+.comment {
+    position: relative;
+    margin: 10px;
+
+    .image {
+        position: absolute;
+        top: 4px;
+        left: 0px;
+
+        width: 32px;
+        height: 32px;
+
+        background: #888;
+
+        .border-radius(3px);
+    }
+
+    .body {
+
+        .golden-font(12px);
+
+        margin-left: 44px;
+
+        .author {
+            font-weight: bold;
+            display: inline;
+        }
+
+        .screen-name {
+            display: inline;
+        }
+
+        .text {
+
+        }
+    }
+}
