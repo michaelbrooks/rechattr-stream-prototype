@@ -172,7 +172,7 @@
     };
 
     var randomChoices = function (minAnswers, maxAnswers) {
-        var numAnswers = minAnswers + Math.random() * (maxAnswers - minAnswers);
+        var numAnswers = minAnswers + Math.floor(Math.random() * (maxAnswers - minAnswers));
         var answers = [];
         while (answers.length < numAnswers) {
             answers.push(randomText(3, 15));
@@ -185,7 +185,7 @@
         var consonants = 'bcdfghjklmnpqrstvwxz';
         var letters;
 
-        var length = minLength + Math.random() * (maxLength - minLength);
+        var length = minLength + Math.floor(Math.random() * (maxLength - minLength));
         var result = '';
 
         var wordLen = 0;
