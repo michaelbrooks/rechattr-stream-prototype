@@ -19,7 +19,7 @@
             collection: question.answers
         });
 
-        this.el.append(view.render().el);
+        this.el.prepend(view.render().el);
     };
 
     Rendering.prototype.renderAnswer = function(answer) {
@@ -27,7 +27,7 @@
         this.answers.add(answer);
 
         var question = this.questions.get(answer.get('question'));
-        question.answers.add(answer);
+        question.answers.unshift(answer);
     };
 
     Rendering.prototype.renderPoll = function(poll) {
@@ -38,7 +38,7 @@
             model: poll
         });
 
-        this.el.append(view.render().el);
+        this.el.prepend(view.render().el);
     };
 
     Rendering.prototype.renderChoice = function(choice) {
@@ -58,7 +58,7 @@
             model: comment
         });
 
-        this.el.append(view.render().el);
+        this.el.prepend(view.render().el);
     };
 
     Rendering.prototype.render = function(el) {
