@@ -6,11 +6,11 @@
 
     var gen = new Generator({
         intervals: {
-            question: 30,
+            question: 60,
             answer: 15,
             comment: 15,
             choice: 10,
-            poll: 30
+            poll: 60
         }
     });
 
