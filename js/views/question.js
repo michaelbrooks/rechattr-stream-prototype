@@ -2,10 +2,16 @@
 
     var QuestionView = window.QuestionView = Marionette.CompositeView.extend({
         template: '#question-template',
-        className: 'question',
+        className: 'collapse',
 
         itemViewContainer: '.answers',
-        itemView: CommentView
+        itemView: CommentView,
+
+        renderItemView: function(view, index) {
+            Marionette.CompositeView.prototype.renderItemView.call(this, view, index);
+
+            view.$el.collapse('show');
+        }
     });
 
 })();

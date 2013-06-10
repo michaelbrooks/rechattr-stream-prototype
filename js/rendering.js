@@ -20,6 +20,7 @@
         });
 
         this.el.prepend(view.render().el);
+        view.$el.collapse('show');
     };
 
     Rendering.prototype.renderAnswer = function(answer) {
@@ -39,6 +40,7 @@
         });
 
         this.el.prepend(view.render().el);
+        view.$el.collapse('show');
     };
 
     Rendering.prototype.renderChoice = function(choice) {
@@ -59,6 +61,7 @@
         });
 
         this.el.prepend(view.render().el);
+        view.$el.collapse('show');
     };
 
     Rendering.prototype.render = function(el) {

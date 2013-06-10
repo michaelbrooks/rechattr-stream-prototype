@@ -38,30 +38,36 @@
 </div>
 
 <script type="text/template" id="poll-template">
-    <div class="text"><%=text%></div>
-    <div class="choices">
-        <% for (var i in choices) { %>
-        <div class="choice">
-            <div class="count"><%=answers[i]%></div>
-            <div class="choice-label"><%=choices[i]%></div>
+    <div class="poll">
+        <div class="text"><%=text%></div>
+        <div class="choices">
+            <% for (var i in choices) { %>
+            <div class="choice">
+                <div class="count"><%=answers[i]%></div>
+                <div class="choice-label"><%=choices[i]%></div>
+            </div>
+            <% } %>
         </div>
-        <% } %>
     </div>
 </script>
 
 <script type="text/template" id="question-template">
-    <div class="text"><%=text%></div>
-    <div class="answers"></div>
+    <div class="question">
+        <div class="text"><%=text%></div>
+        <div class="answers"></div>
+    </div>
 </script>
 
 <script type="text/template" id="comment-template">
-    <div class="image"></div>
-    <div class="body">
-        <div class="author"><%=author%></div>
-        <% if (typeof screenname !== 'undefined') { %>
-            <div class="screen-name"><%=screenname%></div>
-        <% } %>
-        <div class="text"><%=text%></div>
+    <div class="comment">
+        <div class="image"></div>
+        <div class="body">
+            <div class="author"><%=author%></div>
+            <% if (typeof screenname !== 'undefined') { %>
+                <div class="screen-name"><%=screenname%></div>
+            <% } %>
+            <div class="text"><%=text%></div>
+        </div>
     </div>
 </script>
 
